@@ -1,0 +1,88 @@
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+
+table {
+  outline-width: 1px;
+  outline-style: dashed;
+  outline-color: #ffa700;
+  outline-offset: 2px;
+  font-size: large;
+}
+
+#cate {
+  color: maroon;
+  background-color: #D3D3D3;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+  background: #f2f2f2;
+  font-family: 'Open Sans', sans-serif, 'Microsoft JhengHei';
+}
+
+.search {
+  width: 100%;
+  position: relative;
+}
+.searchOption {
+  float: absolute;
+  width: 30%;
+  border: 3px solid #ffa700;
+  height: 36px;
+  border-radius: 5px;
+  outline: none;
+  color: black;
+  padding: 3px;
+  font-size-adjust: inherit;
+}
+
+.searchTerm {
+  float: absolute;
+  width: 50%;
+  border: 3px solid #ffa700;
+  height: 36px;
+  border-radius: 5px;
+  outline: none;
+  color: black;
+  padding: 3px;
+  font-size-adjust: inherit;
+}
+
+.searchTerm:focus{
+  color: #070707;
+  height: 36px;
+}
+
+.searchButton {
+    position: absolute;  
+    right: 60 px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #ffa700;
+    background: #ffa700;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
+.wrap{
+  width: 100%;
+
+}
+
+.dept {
+  color: #4885ed;
+  font-size: 16px;
+}
+
+.team {
+  color: #3cba54;
+}
+#contact {
+  bottom: 0;
+  width: 100%;
+}
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-52489652-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-52489652-3');
+</script>
+
+    
+    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://ws.taitra.org.tw/001/upload/401/sites/pagebackimage/08823f58-5918-4990-93ec-b8922a067945.png">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <meta name="description"
+        content="TAITRA WorkPlace" />
+    <title style="font-family:Microsoft JhengHei">【TAITRA Workplace社團營運競賽】初選投票 - 投票編號查詢</title>
+</head>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+<script>
+function check_email() {
+   var query_text = $("#query_text").val();
+   var displayResources = $('#result');
+   var output = '';
+   if (query_text.length <= 13) {
+	  output = '請輸入正確之email進行查詢';
+	  displayResources.html(output);
+	  $('#query_text').focus();
+   }
+   else {
+	output = '查詢中....';
+	displayResources.html(output);
+	var query_api = 'https://taitra.online/api/send_code/' + query_text;
+	
+        $.ajax({
+		type: "GET",
+		url: query_api,
+		dataType: "text",
+		beforeSend: function () {
+		    displayResources.html("<p><img id='loading-img' src='/img/loadingData2.gif'>");
+		},
+		complete: function () {
+		    $("#loading-img").hide();
+		},
+		success: function (result) {
+		    $("#bg").css('background-image', 'none');
+		    console.log(result);
+                    output = result;
+         	    displayResources.html(output);
+		    $('#query_text').focus();
+		  }
+	    });
+   }   
+}
+$('#query_text').focus();
+</script>
+<body>
+
+    <div align="center">
+        <h3><img src="https://code.taitra.online/img/TAITRA.png" height="36" width="36">【TAITRA Workplace社團營運競賽】<br>
+個人投票代碼查詢</h3>
+        <div class="w3-container w3-white" style="max-width:1200px; min-height: 800px;">
+            <div class="wrap" align="center">
+                <p>
+                    <div class="search">
+                        <input type="text" placeholder="請輸入TAITRA email進行查詢" class="searchTerm" id="query_text"
+                            onkeypress="if (event.keyCode == 13) {$('#check_email').click();}">
+                        <button type="submit" id="check_email" class="searchButton" onclick="check_email()"><a
+                                class="fa fa-search"></a></button>
+                    </div>
+            </div>
+            <h4>
+                <p>
+                    <div id="result" align='center' class="result"></div>
+            </h4>
+            <p>
+        </div>
+    </div>
+</body>
+</html>
